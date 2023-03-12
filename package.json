@@ -1,6 +1,6 @@
 {
   "name": "typedoc-plugin-zod",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeDoc plugin which replaces z.infer<typeof x> with the inferred type",
   "main": "dist/plugin.js",
   "scripts": {
@@ -27,5 +27,12 @@
   },
   "files": [
     "dist/plugin.js"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/Gerrit0/typedoc-plugin-zod.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Gerrit0/typedoc-plugin-zod/issues"
+  }
 }
