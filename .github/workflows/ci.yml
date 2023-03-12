@@ -1,0 +1,24 @@
+name: CI
+on: [push, pull_request]
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node: ["14", "16", "18"]
+        name: Node ${{ matrix.node }}
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v3
+            - name: Set up Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: ${{ matrix.node }}
+            - name: Install
+              run: npm ci
+            - name: Build
+              run: npm run build
+            - name: Test
+              run: npm run test
+            - name: Lint
+              run: npm run lint

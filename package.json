@@ -1,0 +1,31 @@
+{
+  "name": "typedoc-plugin-zod",
+  "version": "0.0.0",
+  "description": "TypeDoc plugin which replaces z.infer<typeof x> with the inferred type",
+  "main": "dist/plugin.js",
+  "scripts": {
+    "build": "tsc",
+    "lint": "prettier --check .",
+    "test": "vitest run",
+    "docs": "typedoc --plugin ./dist/plugin.js src/testdata/infer.ts"
+  },
+  "keywords": [
+    "typedoc-plugin"
+  ],
+  "author": "Gerrit Birkeland <gerrit@gerritbirkeland.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "outdent": "^0.8.0",
+    "prettier": "^2.8.4",
+    "typedoc": "^0.23.26",
+    "typescript": "^4.9.5",
+    "vitest": "^0.29.2",
+    "zod": "^3.21.4"
+  },
+  "peerDependencies": {
+    "typedoc": "0.23.x"
+  },
+  "files": [
+    "dist/plugin.js"
+  ]
+}
