@@ -15,4 +15,4 @@ npm install --save-dev typedoc-plugin-zod
 }
 ```
 
-See [an example](https://gerritbirkeland.com/typedoc-packages-example/types/Abc.html) of this plugin in action.
+See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) of this plugin in action.
