@@ -14,14 +14,14 @@ const zod_1 = __importDefault(require("zod"));
  *     other: zod.object({
  *         arr: zod.array(zod.number()),
  *     }),
+ *     opt: z.string().optional(),
  * });
  * ```
- *
- * The typedoc-plugin-zod replaced
  */
 exports.abc = zod_1.default.object({
     prop: zod_1.default.string(),
     other: zod_1.default.object({
         arr: zod_1.default.array(zod_1.default.number()),
     }),
+    opt: zod_1.default.string().optional(),
 });
