@@ -9,6 +9,7 @@ import z from "zod";
  *     other: zod.object({
  *         arr: zod.array(zod.number()),
  *     }),
+ *     opt: z.string().optional(),
  * });
  * ```
  *
@@ -19,6 +20,7 @@ export const abc = z.object({
     other: z.object({
         arr: z.array(z.number()),
     }),
+    opt: z.string().optional(),
 });
 
 /**

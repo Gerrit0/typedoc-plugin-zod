@@ -29,6 +29,7 @@ test("infer.ts", () => {
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
         TypeAlias Abc:Object
           TypeLiteral __type
+            Property opt:undefined | string
             Property other:{ arr: number[]; }
             Property prop:string
     `);
