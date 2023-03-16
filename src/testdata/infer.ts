@@ -12,8 +12,6 @@ import z from "zod";
  *     opt: z.string().optional(),
  * });
  * ```
- *
- * The typedoc-plugin-zod replaced
  */
 export const abc = z.object({
     prop: z.string(),
