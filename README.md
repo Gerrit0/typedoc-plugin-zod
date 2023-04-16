@@ -16,3 +16,13 @@ npm install --save-dev typedoc-plugin-zod
 ```
 
 See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) of this plugin in action.
+
+## Change Log
+
+# v1.0.2
+
+-   Update peer dependency to allow TypeDoc 0.24
+
+# v1.0.1
+
+-   Add GitHub links to NPM package
