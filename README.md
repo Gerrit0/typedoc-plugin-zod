@@ -19,10 +19,14 @@ See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) 
 
 ## Change Log
 
-# v1.0.2
+### v1.1.0
+
+-   Add support for TypeDoc 0.25.x
+
+### v1.0.2
 
 -   Update peer dependency to allow TypeDoc 0.24
 
-# v1.0.1
+### v1.0.1
 
 -   Add GitHub links to NPM package

@@ -10,21 +10,22 @@ import { load } from "../plugin";
 
 let project: ProjectReflection;
 
-beforeAll(() => {
-    const app = new Application();
-    app.options.addReader(new TSConfigReader());
-    app.bootstrap({
-        entryPoints: ["src/testdata/infer.ts"],
-    });
+beforeAll(async () => {
+    const app = await Application.bootstrap(
+        {
+            entryPoints: ["src/testdata/infer.ts"],
+        },
+        [new TSConfigReader()],
+    );
     load(app);
 
-    project = app.convert()!;
+    project = (await app.convert())!;
     expect(project).toBeDefined();
 });
 
 test("infer.ts", () => {
     const typeDeclaration = project.getChildByName(
-        "Abc"
+        "Abc",
     ) as DeclarationReflection;
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
         TypeAlias Abc:Object
@@ -35,9 +36,9 @@ test("infer.ts", () => {
     `);
 
     const schemaDeclaration = project.getChildByName(
-        "abc"
+        "abc",
     ) as DeclarationReflection;
     expect(schemaDeclaration.toStringHierarchy()).toBe(
-        "Variable abc:ZodObject<Abc>"
+        "Variable abc:ZodObject<Abc>",
     );
 });

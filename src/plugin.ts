@@ -22,7 +22,7 @@ export function load(app: Application) {
                     ReferenceType.createResolvedReference(
                         inferredType.name,
                         inferredType,
-                        context.project
+                        context.project,
                     ),
                 ];
             }
@@ -33,7 +33,7 @@ export function load(app: Application) {
 
     function onCreateDeclaration(
         context: Context,
-        refl: DeclarationReflection
+        refl: DeclarationReflection,
     ) {
         if (
             !refl.kindOf(ReflectionKind.TypeAlias) ||
