@@ -1,4 +1,5 @@
 import {
+    TypeScript as ts,
     Application,
     Context,
     Converter,
@@ -50,7 +51,8 @@ export function load(app: Application) {
 
         const declaration = refl.project
             .getSymbolFromReflection(refl)
-            ?.getDeclarations()?.[0];
+            ?.getDeclarations()
+            ?.find(ts.isTypeAliasDeclaration);
         if (!declaration) return;
 
         const type = context.getTypeAtLocation(declaration);

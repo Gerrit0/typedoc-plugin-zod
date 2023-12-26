@@ -7,7 +7,7 @@
     "build": "tsc",
     "lint": "prettier --check .",
     "test": "vitest run",
-    "docs": "typedoc --plugin ./dist/plugin.js src/testdata/infer.ts"
+    "docs": "typedoc --plugin ./dist/plugin.js"
   },
   "keywords": [
     "typedoc-plugin"
