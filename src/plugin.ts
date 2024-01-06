@@ -40,7 +40,8 @@ export function load(app: Application) {
             !refl.kindOf(ReflectionKind.TypeAlias) ||
             refl.type?.type !== "reference" ||
             refl.type.package !== "zod" ||
-            refl.type.qualifiedName !== "TypeOf"
+            (refl.type.qualifiedName !== "TypeOf" &&
+                refl.type.qualifiedName !== "input")
         ) {
             return;
         }
