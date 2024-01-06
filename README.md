@@ -19,6 +19,10 @@ See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) 
 
 ## Change Log
 
+### v1.1.2
+
+-   Added support for the `z.input` type, #3.
+
 ### v1.1.1
 
 -   Fixed conversion of symbols where the same name is used for a type and variable, #2.
