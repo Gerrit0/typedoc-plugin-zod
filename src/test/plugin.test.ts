@@ -2,9 +2,9 @@ import outdent from "outdent";
 import {
     Application,
     DeclarationReflection,
-    ProjectReflection,
     TSConfigReader,
     TypeScript as ts,
+    ReflectionType,
 } from "typedoc";
 import { test, expect, beforeAll } from "vitest";
 import { load } from "../plugin";
@@ -48,6 +48,7 @@ test("infer.ts", () => {
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
         TypeAlias Abc:Object
           TypeLiteral __type
+            Property def:string
             Property opt:string
             Property other:{ arr: number[]; }
             Property prop:string
@@ -59,6 +60,40 @@ test("infer.ts", () => {
     expect(schemaDeclaration.toStringHierarchy()).toBe(
         "Variable abc:ZodObject<Abc>",
     );
+
+    expect(
+        (typeDeclaration.type as ReflectionType)!.declaration!.getChildByName(
+            "def",
+        )!.flags.isOptional,
+    ).toBe(false);
+});
+
+test("input.ts", () => {
+    const project = convert("input.ts");
+    const typeDeclaration = project.getChildByName(
+        "Abc",
+    ) as DeclarationReflection;
+    expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
+        TypeAlias Abc:Object
+          TypeLiteral __type
+            Property def:string
+            Property opt:string
+            Property other:{ arr: number[]; }
+            Property prop:string
+    `);
+
+    const schemaDeclaration = project.getChildByName(
+        "abc",
+    ) as DeclarationReflection;
+    expect(schemaDeclaration.toStringHierarchy()).toBe(
+        "Variable abc:ZodObject<Abc>",
+    );
+
+    expect(
+        (typeDeclaration.type as ReflectionType)!.declaration!.getChildByName(
+            "def",
+        )!.flags.isOptional,
+    ).toBe(true);
 });
 
 test("Schemas which have multiple declarations, #2", () => {

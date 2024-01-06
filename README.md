@@ -1,6 +1,6 @@
 # typedoc-plugin-zod
 
-Improves display of types created with [Zod](https://github.com/colinhacks/zod)'s `z.infer` type.
+Improves display of types created with [Zod](https://github.com/colinhacks/zod)'s `z.infer` and `z.input` types.
 
 ## Usage
 
