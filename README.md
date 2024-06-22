@@ -19,11 +19,15 @@ See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) 
 
 ## Change Log
 
-### v1.1.2
+### v1.2.0 (2024-06-22)
+
+-   Support TypeDoc 0.26.
+
+### v1.1.2 (2024-01-06)
 
 -   Added support for the `z.input` type, #3.
 
-### v1.1.1
+### v1.1.1 (2023-12-26)
 
 -   Fixed conversion of symbols where the same name is used for a type and variable, #2.
 

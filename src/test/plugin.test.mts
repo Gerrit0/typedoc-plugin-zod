@@ -1,4 +1,4 @@
-import outdent from "outdent";
+import { outdent } from "outdent";
 import {
     Application,
     DeclarationReflection,
@@ -7,7 +7,7 @@ import {
     ReflectionType,
 } from "typedoc";
 import { test, expect, beforeAll } from "vitest";
-import { load } from "../plugin";
+import { load } from "../plugin.js";
 
 let app: Application;
 let program: ts.Program;
@@ -46,19 +46,21 @@ test("infer.ts", () => {
         "Abc",
     ) as DeclarationReflection;
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
-        TypeAlias Abc:Object
+        TypeAlias Abc: Object
           TypeLiteral __type
-            Property def:string
-            Property opt:string
-            Property other:{ arr: number[]; }
-            Property prop:string
+            Property def: string
+            Property opt: string
+            Property other: Object
+              TypeLiteral __type
+                Property arr: number[]
+            Property prop: string
     `);
 
     const schemaDeclaration = project.getChildByName(
         "abc",
     ) as DeclarationReflection;
     expect(schemaDeclaration.toStringHierarchy()).toBe(
-        "Variable abc:ZodObject<Abc>",
+        "Variable abc: ZodObject<Abc>",
     );
 
     expect(
@@ -74,19 +76,21 @@ test("input.ts", () => {
         "Abc",
     ) as DeclarationReflection;
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
-        TypeAlias Abc:Object
+        TypeAlias Abc: Object
           TypeLiteral __type
-            Property def:string
-            Property opt:string
-            Property other:{ arr: number[]; }
-            Property prop:string
+            Property def: string
+            Property opt: string
+            Property other: Object
+              TypeLiteral __type
+                Property arr: number[]
+            Property prop: string
     `);
 
     const schemaDeclaration = project.getChildByName(
         "abc",
     ) as DeclarationReflection;
     expect(schemaDeclaration.toStringHierarchy()).toBe(
-        "Variable abc:ZodObject<Abc>",
+        "Variable abc: ZodObject<Abc>",
     );
 
     expect(
@@ -101,11 +105,11 @@ test("Schemas which have multiple declarations, #2", () => {
 
     expect(project.toStringHierarchy()).toBe(outdent`
         Project typedoc-plugin-zod
-          TypeAlias Foo:Object
+          TypeAlias Foo: Object
             TypeLiteral __type
-              Property a:string
-              Property b:number
-              Property c:unknown
-          Variable Foo:ZodObject<Foo>
+              Property a: string
+              Property b: number
+              Property c: unknown
+          Variable Foo: ZodObject<Foo>
     `);
 });
