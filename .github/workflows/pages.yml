@@ -13,13 +13,13 @@ jobs:
             - name: Set up Node
               uses: actions/setup-node@v3
               with:
-                  node-version: "16"
+                  node-version: "20"
             - name: Install
               run: npm ci
             - name: Build
               run: npm run build
             - name: Build docs
-              run: npm run docs
+              run: npm run docs -- src/testdata/infer.ts
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4.4.1
               with:
