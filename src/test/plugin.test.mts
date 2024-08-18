@@ -113,3 +113,21 @@ test("Schemas which have multiple declarations, #2", () => {
           Variable Foo: ZodObject<Foo>
     `);
 });
+
+test("Serialized/deserialized projects do not create warnings, #6", () => {
+    const project = convert("gh6.ts");
+    const ser = app.serializer.projectToObject(project, process.cwd());
+    app.deserializer.reviveProject(ser, "gh6", process.cwd(), project.files);
+
+    expect(project.toStringHierarchy()).toBe(outdent`
+        Project typedoc-plugin-zod
+          TypeAlias Foo: Object
+            TypeLiteral __type
+              Property a: string
+              Property b: number
+              Property c: unknown
+          Variable Foo: ZodObject<Foo>
+    `);
+
+    expect(app.logger.hasWarnings()).toBe(false);
+});
