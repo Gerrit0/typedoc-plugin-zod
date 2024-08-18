@@ -5,6 +5,8 @@ import {
     TSConfigReader,
     TypeScript as ts,
     ReflectionType,
+    Comment,
+    ProjectReflection,
 } from "typedoc";
 import { test, expect, beforeAll } from "vitest";
 import { load } from "../plugin.js";
@@ -24,6 +26,11 @@ function convert(entry: string) {
             sourceFile,
         },
     ]);
+}
+
+function getComment(project: ProjectReflection, path: string) {
+    const refl = project.getChildByName(path);
+    return Comment.combineDisplayParts(refl?.comment?.summary);
 }
 
 beforeAll(async () => {
@@ -130,4 +137,26 @@ test("Serialized/deserialized projects do not create warnings, #6", () => {
     `);
 
     expect(app.logger.hasWarnings()).toBe(false);
+});
+
+test("Comments on type aliases, #7", () => {
+    const project = convert("gh7.ts");
+
+    expect(project.toStringHierarchy()).toBe(outdent`
+        Project typedoc-plugin-zod
+          TypeAlias Bar: Object
+            TypeLiteral __type
+              Property b: string
+          TypeAlias Foo: Object
+            TypeLiteral __type
+              Property a: string
+          Variable Bar: ZodObject<Bar>
+          Variable Foo: ZodObject<Foo>
+    `);
+
+    const comments = ["Bar type docs", "Foo docs", "Bar docs", "Foo docs"];
+    const actualComments = project.children?.map((c) =>
+        Comment.combineDisplayParts(c.comment?.summary),
+    );
+    expect(actualComments).toEqual(comments);
 });

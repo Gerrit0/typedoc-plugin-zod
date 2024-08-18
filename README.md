@@ -19,6 +19,11 @@ See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) 
 
 ## Change Log
 
+### v1.2.1 (2024-08-18)
+
+-   Fix warnings about referenced but not present reflections in packages mode, #6.
+-   Copy comments from schema object declaration to type alias, #7.
+
 ### v1.2.0 (2024-06-22)
 
 -   Support TypeDoc 0.26.

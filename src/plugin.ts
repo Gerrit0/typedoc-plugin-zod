@@ -36,11 +36,10 @@ export function load(app: Application) {
                         context.project,
                     ),
                 ];
+
+                inferredType.comment ??= refOrig.reflection.comment?.clone();
             }
         }
-
-        console.log(context.project.getReflectionById(35)?.getFullName());
-        console.log(context.project.getReflectionById(70)?.getFullName());
 
         schemaTypes.clear();
     });
