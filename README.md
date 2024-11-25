@@ -19,6 +19,10 @@ See [an example](https://gerritbirkeland.com/typedoc-plugin-zod/types/Abc.html) 
 
 ## Change Log
 
+### v1.3.0 (2024-11-24)
+
+-   Support TypeDoc 0.27.
+
 ### v1.2.1 (2024-08-18)
 
 -   Fix warnings about referenced but not present reflections in packages mode, #6.

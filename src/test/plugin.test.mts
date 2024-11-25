@@ -53,11 +53,11 @@ test("infer.ts", () => {
         "Abc",
     ) as DeclarationReflection;
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
-        TypeAlias Abc: Object
+        TypeAlias Abc: { def: string; opt?: string; other: { arr: number[] }; prop: string }
           TypeLiteral __type
             Property def: string
             Property opt: string
-            Property other: Object
+            Property other: { arr: number[] }
               TypeLiteral __type
                 Property arr: number[]
             Property prop: string
@@ -83,11 +83,11 @@ test("input.ts", () => {
         "Abc",
     ) as DeclarationReflection;
     expect(typeDeclaration.toStringHierarchy()).toBe(outdent`
-        TypeAlias Abc: Object
+        TypeAlias Abc: { def?: string; opt?: string; other: { arr: number[] }; prop: string }
           TypeLiteral __type
             Property def: string
             Property opt: string
-            Property other: Object
+            Property other: { arr: number[] }
               TypeLiteral __type
                 Property arr: number[]
             Property prop: string
@@ -112,7 +112,7 @@ test("Schemas which have multiple declarations, #2", () => {
 
     expect(project.toStringHierarchy()).toBe(outdent`
         Project typedoc-plugin-zod
-          TypeAlias Foo: Object
+          TypeAlias Foo: { a: string; b: number; c?: unknown }
             TypeLiteral __type
               Property a: string
               Property b: number
@@ -124,11 +124,15 @@ test("Schemas which have multiple declarations, #2", () => {
 test("Serialized/deserialized projects do not create warnings, #6", () => {
     const project = convert("gh6.ts");
     const ser = app.serializer.projectToObject(project, process.cwd());
-    app.deserializer.reviveProject(ser, "gh6", process.cwd(), project.files);
+    app.deserializer.reviveProject("gh6", ser, {
+        projectRoot: process.cwd(),
+        registry: project.files,
+        addProjectDocuments: false,
+    });
 
     expect(project.toStringHierarchy()).toBe(outdent`
         Project typedoc-plugin-zod
-          TypeAlias Foo: Object
+          TypeAlias Foo: { a: string; b: number; c?: unknown }
             TypeLiteral __type
               Property a: string
               Property b: number
@@ -144,10 +148,10 @@ test("Comments on type aliases, #7", () => {
 
     expect(project.toStringHierarchy()).toBe(outdent`
         Project typedoc-plugin-zod
-          TypeAlias Bar: Object
+          TypeAlias Bar: { b: string }
             TypeLiteral __type
               Property b: string
-          TypeAlias Foo: Object
+          TypeAlias Foo: { a: string }
             TypeLiteral __type
               Property a: string
           Variable Bar: ZodObject<Bar>
