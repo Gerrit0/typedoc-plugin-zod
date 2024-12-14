@@ -1,7 +1,7 @@
 import {
     TypeScript as ts,
-    Application,
-    Context,
+    type Application,
+    type Context,
     Converter,
     DeclarationReflection,
     ReferenceType,
@@ -14,35 +14,40 @@ export function load(app: Application) {
     const schemaTypes = new Map<DeclarationReflection, ReferenceType>();
 
     app.converter.on(Converter.EVENT_CREATE_DECLARATION, onCreateDeclaration);
-    app.converter.on(Converter.EVENT_END, (context: Context) => {
-        const typeCleanup = makeRecursiveVisitor({
-            reflection: (type) => {
-                context.project.removeReflection(type.declaration);
-            },
-        });
+    app.converter.on(
+        Converter.EVENT_RESOLVE_BEGIN,
+        (context: Context) => {
+            const typeCleanup = makeRecursiveVisitor({
+                reflection: (type) => {
+                    context.project.removeReflection(type.declaration);
+                },
+            });
 
-        for (const [inferredType, refOrig] of schemaTypes) {
-            if (
-                refOrig.reflection instanceof DeclarationReflection &&
-                refOrig.reflection.type instanceof ReferenceType
-            ) {
-                refOrig.reflection.type.typeArguments?.forEach((t) =>
-                    t.visit(typeCleanup),
-                );
-                refOrig.reflection.type.typeArguments = [
-                    ReferenceType.createResolvedReference(
-                        inferredType.name,
-                        inferredType,
-                        context.project,
-                    ),
-                ];
+            for (const [inferredType, refOrig] of schemaTypes) {
+                if (
+                    refOrig.reflection instanceof DeclarationReflection &&
+                    refOrig.reflection.type instanceof ReferenceType
+                ) {
+                    refOrig.reflection.type.typeArguments?.forEach((t) =>
+                        t.visit(typeCleanup),
+                    );
+                    refOrig.reflection.type.typeArguments = [
+                        ReferenceType.createResolvedReference(
+                            inferredType.name,
+                            inferredType,
+                            context.project,
+                        ),
+                    ];
 
-                inferredType.comment ??= refOrig.reflection.comment?.clone();
+                    inferredType.comment ??=
+                        refOrig.reflection.comment?.clone();
+                }
             }
-        }
 
-        schemaTypes.clear();
-    });
+            schemaTypes.clear();
+        },
+        2000,
+    );
 
     function onCreateDeclaration(
         context: Context,
@@ -76,7 +81,10 @@ export function load(app: Application) {
                 },
             }),
         );
-        refl.type = context.converter.convertType(context, type);
+        refl.type = context.converter.convertType(
+            context.withScope(refl),
+            type,
+        );
 
         if (originalRef) {
             schemaTypes.set(refl, originalRef);

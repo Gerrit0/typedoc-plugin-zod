@@ -8,5 +8,13 @@
         "outDir": "dist",
         "types": []
     },
-    "include": ["."]
+    "include": ["."],
+    "typedocOptions": {
+        "readme": "none",
+        "logLevel": "Verbose",
+        "outputs": [
+            { "name": "html", "path": "./docs" },
+            { "name": "json", "path": "./docs/docs.json" }
+        ]
+    }
 }
