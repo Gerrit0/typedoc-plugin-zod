@@ -1,0 +1,315 @@
+{
+	"id": 0,
+	"name": "typedoc-plugin-zod",
+	"variant": "project",
+	"kind": 1,
+	"flags": {},
+	"children": [
+		{
+			"id": 27,
+			"name": "Abc",
+			"variant": "declaration",
+			"kind": 2097152,
+			"flags": {},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "Exported type alias which infers its type using the "
+					},
+					{
+						"kind": "inline-tag",
+						"tag": "@link",
+						"text": "abc",
+						"target": 1
+					},
+					{
+						"kind": "text",
+						"text": " schema.\n\nThis is declared as:\n"
+					},
+					{
+						"kind": "code",
+						"text": "```ts\nexport type Abc = zod.infer<typeof abc>;\n```"
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "src/testdata/infer.ts",
+					"line": 34,
+					"character": 12,
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L34"
+				}
+			],
+			"type": {
+				"type": "reflection",
+				"declaration": {
+					"id": 28,
+					"name": "__type",
+					"variant": "declaration",
+					"kind": 65536,
+					"flags": {},
+					"children": [
+						{
+							"id": 33,
+							"name": "def",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/testdata/infer.ts",
+									"line": 23,
+									"character": 4,
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L23"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 34,
+							"name": "opt",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {
+								"isOptional": true
+							},
+							"sources": [
+								{
+									"fileName": "src/testdata/infer.ts",
+									"line": 22,
+									"character": 4,
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L22"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 29,
+							"name": "other",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/testdata/infer.ts",
+									"line": 19,
+									"character": 4,
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L19"
+								}
+							],
+							"type": {
+								"type": "reflection",
+								"declaration": {
+									"id": 30,
+									"name": "__type",
+									"variant": "declaration",
+									"kind": 65536,
+									"flags": {},
+									"children": [
+										{
+											"id": 31,
+											"name": "arr",
+											"variant": "declaration",
+											"kind": 1024,
+											"flags": {},
+											"sources": [
+												{
+													"fileName": "src/testdata/infer.ts",
+													"line": 20,
+													"character": 8,
+													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L20"
+												}
+											],
+											"type": {
+												"type": "array",
+												"elementType": {
+													"type": "intrinsic",
+													"name": "number"
+												}
+											},
+											"defaultValue": "..."
+										}
+									],
+									"groups": [
+										{
+											"title": "Properties",
+											"children": [
+												31
+											]
+										}
+									],
+									"sources": [
+										{
+											"fileName": "node_modules/zod/lib/helpers/util.d.ts",
+											"line": 42,
+											"character": 38
+										}
+									]
+								}
+							},
+							"defaultValue": "..."
+						},
+						{
+							"id": 32,
+							"name": "prop",
+							"variant": "declaration",
+							"kind": 1024,
+							"flags": {},
+							"sources": [
+								{
+									"fileName": "src/testdata/infer.ts",
+									"line": 18,
+									"character": 4,
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L18"
+								}
+							],
+							"type": {
+								"type": "intrinsic",
+								"name": "string"
+							},
+							"defaultValue": "..."
+						}
+					],
+					"groups": [
+						{
+							"title": "Properties",
+							"children": [
+								33,
+								34,
+								29,
+								32
+							]
+						}
+					],
+					"sources": [
+						{
+							"fileName": "node_modules/zod/lib/helpers/util.d.ts",
+							"line": 42,
+							"character": 38
+						}
+					]
+				}
+			}
+		},
+		{
+			"id": 1,
+			"name": "abc",
+			"variant": "declaration",
+			"kind": 32,
+			"flags": {
+				"isConst": true
+			},
+			"comment": {
+				"summary": [
+					{
+						"kind": "text",
+						"text": "An example zod object for demonstration. This is declared as:\n\n"
+					},
+					{
+						"kind": "code",
+						"text": "```ts\nexport const abc = zod.object({\n    prop: zod.string(),\n    other: zod.object({\n        arr: zod.array(zod.number()),\n    }),\n    opt: z.string().optional(),\n    def: z.string().default(\"abc\"),\n});\n```"
+					}
+				]
+			},
+			"sources": [
+				{
+					"fileName": "src/testdata/infer.ts",
+					"line": 17,
+					"character": 13,
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L17"
+				}
+			],
+			"type": {
+				"type": "reference",
+				"target": {
+					"sourceFileName": "node_modules/zod/lib/types.d.ts",
+					"qualifiedName": "ZodObject"
+				},
+				"typeArguments": [
+					{
+						"type": "reference",
+						"target": 27,
+						"name": "Abc"
+					}
+				],
+				"name": "ZodObject",
+				"package": "zod"
+			},
+			"defaultValue": "..."
+		}
+	],
+	"groups": [
+		{
+			"title": "Type Aliases",
+			"children": [
+				27
+			]
+		},
+		{
+			"title": "Variables",
+			"children": [
+				1
+			]
+		}
+	],
+	"packageName": "typedoc-plugin-zod",
+	"symbolIdMap": {
+		"0": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": ""
+		},
+		"1": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "abc"
+		},
+		"27": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "Abc"
+		},
+		"28": {
+			"sourceFileName": "node_modules/zod/lib/helpers/util.d.ts",
+			"qualifiedName": "__type"
+		},
+		"29": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "other"
+		},
+		"30": {
+			"sourceFileName": "node_modules/zod/lib/helpers/util.d.ts",
+			"qualifiedName": "__type"
+		},
+		"31": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "arr"
+		},
+		"32": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "prop"
+		},
+		"33": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "def"
+		},
+		"34": {
+			"sourceFileName": "src/testdata/infer.ts",
+			"qualifiedName": "opt"
+		}
+	},
+	"files": {
+		"entries": {
+			"1": "src/testdata/infer.ts"
+		},
+		"reflections": {
+			"1": 0
+		}
+	}
+}
