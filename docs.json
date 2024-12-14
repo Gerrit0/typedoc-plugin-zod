@@ -38,7 +38,7 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 34,
 					"character": 12,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L34"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L34"
 				}
 			],
 			"type": {
@@ -61,7 +61,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 23,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L23"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L23"
 								}
 							],
 							"type": {
@@ -83,7 +83,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 22,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L22"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L22"
 								}
 							],
 							"type": {
@@ -103,7 +103,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 19,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L19"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L19"
 								}
 							],
 							"type": {
@@ -126,7 +126,7 @@
 													"fileName": "src/testdata/infer.ts",
 													"line": 20,
 													"character": 8,
-													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L20"
+													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L20"
 												}
 											],
 											"type": {
@@ -169,7 +169,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 18,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L18"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L18"
 								}
 							],
 							"type": {
@@ -225,7 +225,7 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 17,
 					"character": 13,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/743d269fd867812acc919753859e25f7308201e9/src/testdata/infer.ts#L17"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/cda9c3084d544643692ba44a11b77660c4c8382f/src/testdata/infer.ts#L17"
 				}
 			],
 			"type": {
