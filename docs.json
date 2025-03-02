@@ -1,4 +1,5 @@
 {
+	"schemaVersion": "2.0",
 	"id": 0,
 	"name": "typedoc-plugin-zod",
 	"variant": "project",
@@ -38,7 +39,7 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 34,
 					"character": 12,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L34"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L34"
 				}
 			],
 			"type": {
@@ -61,7 +62,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 23,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L23"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L23"
 								}
 							],
 							"type": {
@@ -83,7 +84,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 22,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L22"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L22"
 								}
 							],
 							"type": {
@@ -103,7 +104,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 19,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L19"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L19"
 								}
 							],
 							"type": {
@@ -126,7 +127,7 @@
 													"fileName": "src/testdata/infer.ts",
 													"line": 20,
 													"character": 8,
-													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L20"
+													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L20"
 												}
 											],
 											"type": {
@@ -149,7 +150,7 @@
 									],
 									"sources": [
 										{
-											"fileName": "node_modules/zod/lib/helpers/util.d.ts",
+											"fileName": "node_modules/.pnpm/zod@3.24.2/node_modules/zod/lib/helpers/util.d.ts",
 											"line": 42,
 											"character": 38
 										}
@@ -169,7 +170,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 18,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L18"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L18"
 								}
 							],
 							"type": {
@@ -192,7 +193,7 @@
 					],
 					"sources": [
 						{
-							"fileName": "node_modules/zod/lib/helpers/util.d.ts",
+							"fileName": "node_modules/.pnpm/zod@3.24.2/node_modules/zod/lib/helpers/util.d.ts",
 							"line": 42,
 							"character": 38
 						}
@@ -225,13 +226,14 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 17,
 					"character": 13,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/20a679acda3fece840a2798218ec8513606eaa49/src/testdata/infer.ts#L17"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/c5a0ccae82c40ab7045c441a132bad6bc66179a0/src/testdata/infer.ts#L17"
 				}
 			],
 			"type": {
 				"type": "reference",
 				"target": {
-					"sourceFileName": "node_modules/zod/lib/types.d.ts",
+					"packageName": "zod",
+					"packagePath": "lib/types.d.ts",
 					"qualifiedName": "ZodObject"
 				},
 				"typeArguments": [
@@ -264,43 +266,53 @@
 	"packageName": "typedoc-plugin-zod",
 	"symbolIdMap": {
 		"0": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": ""
 		},
 		"1": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "abc"
 		},
 		"27": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "Abc"
 		},
 		"28": {
-			"sourceFileName": "node_modules/zod/lib/helpers/util.d.ts",
+			"packageName": "zod",
+			"packagePath": "lib/helpers/util.d.ts",
 			"qualifiedName": "__type"
 		},
 		"29": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "other"
 		},
 		"30": {
-			"sourceFileName": "node_modules/zod/lib/helpers/util.d.ts",
+			"packageName": "zod",
+			"packagePath": "lib/helpers/util.d.ts",
 			"qualifiedName": "__type"
 		},
 		"31": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "arr"
 		},
 		"32": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "prop"
 		},
 		"33": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "def"
 		},
 		"34": {
-			"sourceFileName": "src/testdata/infer.ts",
+			"packageName": "typedoc-plugin-zod",
+			"packagePath": "src/testdata/infer.ts",
 			"qualifiedName": "opt"
 		}
 	},
