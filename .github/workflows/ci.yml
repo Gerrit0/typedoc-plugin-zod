@@ -9,16 +9,18 @@ jobs:
         name: Node ${{ matrix.node }}
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Set up Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: ${{ matrix.node }}
+            - name: Install pnpm
+              run: npm i -g pnpm@10
             - name: Install
-              run: npm ci
+              run: pnpm install
             - name: Build
-              run: npm run build
+              run: pnpm build
             - name: Test
-              run: npm run test
+              run: pnpm test
             - name: Lint
-              run: npm run lint
+              run: pnpm lint

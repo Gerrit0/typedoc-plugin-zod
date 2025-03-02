@@ -1,14 +1,14 @@
 import { outdent } from "outdent";
 import {
     Application,
+    Comment,
     DeclarationReflection,
+    ProjectReflection,
+    ReflectionType,
     TSConfigReader,
     TypeScript as ts,
-    ReflectionType,
-    Comment,
-    ProjectReflection,
 } from "typedoc";
-import { test, expect, beforeAll } from "vitest";
+import { beforeAll, expect, test } from "vitest";
 import { load } from "../plugin.js";
 
 let app: Application;
@@ -159,8 +159,6 @@ test("Comments on type aliases, #7", () => {
     `);
 
     const comments = ["Bar type docs", "Foo docs", "Bar docs", "Foo docs"];
-    const actualComments = project.children?.map((c) =>
-        Comment.combineDisplayParts(c.comment?.summary),
-    );
+    const actualComments = project.children?.map((c) => Comment.combineDisplayParts(c.comment?.summary));
     expect(actualComments).toEqual(comments);
 });

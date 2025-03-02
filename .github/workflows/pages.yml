@@ -9,17 +9,19 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
             - name: Set up Node
-              uses: actions/setup-node@v3
+              uses: actions/setup-node@v4
               with:
                   node-version: "20"
+            - name: Install pnpm
+              run: npm i -g pnpm@10
             - name: Install
-              run: npm ci
+              run: pnpm i
             - name: Build
-              run: npm run build
+              run: pnpm build
             - name: Build docs
-              run: npm run docs -- src/testdata/infer.ts
+              run: pnpm doc src/testdata/infer.ts
             - name: Deploy
               uses: JamesIves/github-pages-deploy-action@v4.4.1
               with:

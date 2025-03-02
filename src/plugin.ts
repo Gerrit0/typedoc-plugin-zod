@@ -1,12 +1,14 @@
 import {
-    TypeScript as ts,
     type Application,
     type Context,
     Converter,
     DeclarationReflection,
-    ReferenceType,
-    ReflectionKind,
+    IntrinsicType,
     makeRecursiveVisitor,
+    ReferenceType,
+    Reflection,
+    ReflectionKind,
+    TypeScript as ts,
 } from "typedoc";
 
 export function load(app: Application) {
@@ -25,12 +27,10 @@ export function load(app: Application) {
 
             for (const [inferredType, refOrig] of schemaTypes) {
                 if (
-                    refOrig.reflection instanceof DeclarationReflection &&
-                    refOrig.reflection.type instanceof ReferenceType
+                    refOrig.reflection instanceof DeclarationReflection
+                    && refOrig.reflection.type instanceof ReferenceType
                 ) {
-                    refOrig.reflection.type.typeArguments?.forEach((t) =>
-                        t.visit(typeCleanup),
-                    );
+                    refOrig.reflection.type.typeArguments?.forEach((t) => t.visit(typeCleanup));
                     refOrig.reflection.type.typeArguments = [
                         ReferenceType.createResolvedReference(
                             inferredType.name,
@@ -39,8 +39,7 @@ export function load(app: Application) {
                         ),
                     ];
 
-                    inferredType.comment ??=
-                        refOrig.reflection.comment?.clone();
+                    inferredType.comment ??= refOrig.reflection.comment?.clone();
                 }
             }
 
@@ -54,11 +53,11 @@ export function load(app: Application) {
         refl: DeclarationReflection,
     ) {
         if (
-            !refl.kindOf(ReflectionKind.TypeAlias) ||
-            refl.type?.type !== "reference" ||
-            refl.type.package !== "zod" ||
-            (refl.type.qualifiedName !== "TypeOf" &&
-                refl.type.qualifiedName !== "input")
+            !refl.kindOf(ReflectionKind.TypeAlias)
+            || refl.type?.type !== "reference"
+            || refl.type.package !== "zod"
+            || (refl.type.qualifiedName !== "TypeOf"
+                && refl.type.qualifiedName !== "input")
         ) {
             return;
         }
@@ -67,8 +66,7 @@ export function load(app: Application) {
             query: (t) => t.queryType,
         });
 
-        const declaration = refl.project
-            .getSymbolFromReflection(refl)
+        const declaration = getSymbolFromReflection(context, refl)
             ?.getDeclarations()
             ?.find(ts.isTypeAliasDeclaration);
         if (!declaration) return;
@@ -81,13 +79,27 @@ export function load(app: Application) {
                 },
             }),
         );
-        refl.type = context.converter.convertType(
-            context.withScope(refl),
-            type,
-        );
+        if (type) {
+            refl.type = context.converter.convertType(
+                context.withScope(refl),
+                type,
+            );
+        } else {
+            refl.type = new IntrinsicType("any");
+        }
 
         if (originalRef) {
             schemaTypes.set(refl, originalRef);
         }
     }
+}
+
+function getSymbolFromReflection(context: Context, refl: Reflection): ts.Symbol | undefined {
+    if ("getSymbolFromReflection" in context) {
+        // 0.28
+        return context.getSymbolFromReflection(refl);
+    }
+
+    // <0.28
+    return (refl.project as any).getSymbolFromReflection(refl);
 }

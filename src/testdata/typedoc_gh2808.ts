@@ -76,10 +76,9 @@ const OptionsSchema = z.object({
     // Problem happens with this line
     collections: z.record(CollectionConfigSchema).default({}),
     // But does not happen with this line
-    //collections: z.record(z.object({ base: z.string().optional(), name: z.string().optional()})).default({}),
+    // collections: z.record(z.object({ base: z.string().optional(), name: z.string().optional()})).default({}),
     base: z.string().optional(),
 });
 
 export interface Options extends z.input<typeof OptionsSchema> {}
-export interface CollectionConfig
-    extends z.input<typeof CollectionConfigSchema> {}
+export interface CollectionConfig extends z.input<typeof CollectionConfigSchema> {}

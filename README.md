@@ -11,7 +11,7 @@ npm install --save-dev typedoc-plugin-zod
 ```jsonc
 // typedoc.json
 {
-    "plugin": ["typedoc-plugin-zod"],
+    "plugin": ["typedoc-plugin-zod"]
 }
 ```
 
