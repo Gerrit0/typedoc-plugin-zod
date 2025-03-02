@@ -1,3 +1,7 @@
+### v1.4.0 (2025-03-02)
+
+- Support TypeDoc 0.28
+
 ### v1.3.1 (2024-12-14)
 
 - Fixed broken links to type properties for types created with this plugin, TypeStrong/typedoc#2808.
