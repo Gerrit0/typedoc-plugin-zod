@@ -52,6 +52,20 @@ export function load(app: Application) {
         context: Context,
         refl: DeclarationReflection,
     ) {
+        if ("deferConversion" in context.converter) {
+            // In 0.28, the `type` member of type aliases isn't set yet, so we need
+            // to wait until deferred conversion steps are happening to check it.
+            // This isn't really what that hook was intended for originally, but seems
+            // like an appropriate use for this plugin.
+            context.converter.deferConversion(() => {
+                resolveTypeAliasTypes(context, refl);
+            });
+        } else {
+            resolveTypeAliasTypes(context, refl);
+        }
+    }
+
+    function resolveTypeAliasTypes(context: Context, refl: DeclarationReflection) {
         if (
             !refl.kindOf(ReflectionKind.TypeAlias)
             || refl.type?.type !== "reference"

@@ -1,3 +1,7 @@
+### v1.4.1 (2025-03-12)
+
+- Fix broken type alias resolution with TypeDoc 0.28, #9.
+
 ### v1.4.0 (2025-03-02)
 
 - Support TypeDoc 0.28
