@@ -1,6 +1,6 @@
 {
     "name": "typedoc-plugin-zod",
-    "version": "1.4.0",
+    "version": "1.4.1",
     "description": "TypeDoc plugin which replaces z.infer<typeof x> with the inferred type",
     "main": "dist/plugin.js",
     "type": "module",
