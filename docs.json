@@ -39,7 +39,7 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 34,
 					"character": 12,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L34"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L34"
 				}
 			],
 			"type": {
@@ -62,7 +62,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 23,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L23"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L23"
 								}
 							],
 							"type": {
@@ -84,7 +84,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 22,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L22"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L22"
 								}
 							],
 							"type": {
@@ -104,7 +104,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 19,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L19"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L19"
 								}
 							],
 							"type": {
@@ -127,7 +127,7 @@
 													"fileName": "src/testdata/infer.ts",
 													"line": 20,
 													"character": 8,
-													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L20"
+													"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L20"
 												}
 											],
 											"type": {
@@ -150,8 +150,8 @@
 									],
 									"sources": [
 										{
-											"fileName": "node_modules/.pnpm/zod@3.24.2/node_modules/zod/lib/helpers/util.d.ts",
-											"line": 42,
+											"fileName": "node_modules/.pnpm/zod@3.25.64/node_modules/zod/dist/types/v3/helpers/util.d.ts",
+											"line": 45,
 											"character": 38
 										}
 									]
@@ -170,7 +170,7 @@
 									"fileName": "src/testdata/infer.ts",
 									"line": 18,
 									"character": 4,
-									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L18"
+									"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L18"
 								}
 							],
 							"type": {
@@ -193,8 +193,8 @@
 					],
 					"sources": [
 						{
-							"fileName": "node_modules/.pnpm/zod@3.24.2/node_modules/zod/lib/helpers/util.d.ts",
-							"line": 42,
+							"fileName": "node_modules/.pnpm/zod@3.25.64/node_modules/zod/dist/types/v3/helpers/util.d.ts",
+							"line": 45,
 							"character": 38
 						}
 					]
@@ -226,14 +226,14 @@
 					"fileName": "src/testdata/infer.ts",
 					"line": 17,
 					"character": 13,
-					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/e21121254fad442717cffb095573ff3dc08eae2f/src/testdata/infer.ts#L17"
+					"url": "https://github.com/Gerrit0/typedoc-plugin-zod/blob/675ca5947db3fb7b3afd84c3050e3f3ba438d87a/src/testdata/infer.ts#L17"
 				}
 			],
 			"type": {
 				"type": "reference",
 				"target": {
 					"packageName": "zod",
-					"packagePath": "lib/types.d.ts",
+					"packagePath": "dist/types/v3/types.d.ts",
 					"qualifiedName": "ZodObject"
 				},
 				"typeArguments": [
@@ -282,7 +282,7 @@
 		},
 		"28": {
 			"packageName": "zod",
-			"packagePath": "lib/helpers/util.d.ts",
+			"packagePath": "dist/types/v3/helpers/util.d.ts",
 			"qualifiedName": "__type"
 		},
 		"29": {
@@ -292,7 +292,7 @@
 		},
 		"30": {
 			"packageName": "zod",
-			"packagePath": "lib/helpers/util.d.ts",
+			"packagePath": "dist/types/v3/helpers/util.d.ts",
 			"qualifiedName": "__type"
 		},
 		"31": {
