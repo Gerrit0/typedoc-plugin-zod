@@ -1,3 +1,7 @@
+### v1.4.2 (2025-06-14)
+
+- Fixed handling of zod types created by importing `zod/v4`, #10.
+
 ### v1.4.1 (2025-03-12)
 
 - Fix broken type alias resolution with TypeDoc 0.28, #9.

@@ -66,12 +66,16 @@ export function load(app: Application) {
     }
 
     function resolveTypeAliasTypes(context: Context, refl: DeclarationReflection) {
+        // Check if this is a type alias which points to a zod schema
+        // This is a rather unfortunate way to do this check... Zod's type structure
+        // has changed somewhat between v3 and v4, so we have to check several names.
+        // TypeDoc doesn't track scoped imports (zod vs zod/v4) so that doesn't need
+        // to be checked here.
         if (
             !refl.kindOf(ReflectionKind.TypeAlias)
             || refl.type?.type !== "reference"
             || refl.type.package !== "zod"
-            || (refl.type.qualifiedName !== "TypeOf"
-                && refl.type.qualifiedName !== "input")
+            || !["TypeOf", "input", "output"].includes(refl.type.qualifiedName)
         ) {
             return;
         }

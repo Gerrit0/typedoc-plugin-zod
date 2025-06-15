@@ -162,3 +162,24 @@ test("Comments on type aliases, #7", () => {
     const actualComments = project.children?.map((c) => Comment.combineDisplayParts(c.comment?.summary));
     expect(actualComments).toEqual(comments);
 });
+
+test("Support for Zod version 4, #10", () => {
+    const project = convert("gh10.ts");
+
+    console.log(project.toStringHierarchy());
+
+    expect(project.toStringHierarchy()).toBe(outdent`
+      Project typedoc-plugin-zod
+        TypeAlias InferAbc: { inner: { arr: number[] } }
+          TypeLiteral __type
+            Property inner: { arr: number[] }
+              TypeLiteral __type
+                Property arr: number[]
+        TypeAlias TypeOfAbc: { inner: { arr: number[] } }
+          TypeLiteral __type
+            Property inner: { arr: number[] }
+              TypeLiteral __type
+                Property arr: number[]
+        Variable abc: ZodObject<TypeOfAbc>
+    `);
+});
