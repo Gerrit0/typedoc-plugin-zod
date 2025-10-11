@@ -1,3 +1,7 @@
+### v1.4.3 (2025-10-11)
+
+- No behavior changes, migrated release workflow to use trusted publishing.
+
 ### v1.4.2 (2025-06-14)
 
 - Fixed handling of zod types created by importing `zod/v4`, #10.
