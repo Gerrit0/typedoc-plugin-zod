@@ -29,11 +29,6 @@ function convert(entry: string) {
     ]);
 }
 
-function getComment(project: ProjectReflection, path: string) {
-    const refl = project.getChildByName(path);
-    return Comment.combineDisplayParts(refl?.comment?.summary);
-}
-
 beforeAll(async () => {
     app = await Application.bootstrap(
         {
@@ -182,4 +177,41 @@ test("Support for Zod version 4, #10", () => {
                 Property arr: number[]
         Variable abc: ZodObject<TypeOfAbc>
     `);
+});
+
+test("Extract .describe() from Zod schemas", () => {
+    const project = convert("describe.ts");
+
+    // Check that the User type has the description from userSchema.describe()
+    const userType = project.getChildByName("User") as DeclarationReflection;
+    expect(userType).toBeDefined();
+    expect(userType.comment?.summary).toBeDefined();
+    const userComment = Comment.combineDisplayParts(userType.comment?.summary);
+    expect(userComment).toContain("User information schema");
+
+    // Check property descriptions for User type
+    if (userType.type?.type === "reflection" && (userType.type as any).declaration) {
+        const userDecl = (userType.type as any).declaration;
+        const nameField = userDecl.getChildByName("name");
+        expect(nameField).toBeDefined();
+        const nameComment = Comment.combineDisplayParts(nameField?.comment?.summary);
+        expect(nameComment).toContain("The user's full name");
+
+        const emailField = userDecl.getChildByName("email");
+        expect(emailField).toBeDefined();
+        const emailComment = Comment.combineDisplayParts(emailField?.comment?.summary);
+        expect(emailComment).toContain("The user's email address");
+    }
+
+    // Check that the Config type has the description from configSchema.describe()
+    const configType = project.getChildByName("Config") as DeclarationReflection;
+    expect(configType).toBeDefined();
+    const configComment = Comment.combineDisplayParts(configType.comment?.summary);
+    expect(configComment).toContain("Server configuration settings");
+
+    // Check that the Product type has the description from productSchema.describe()
+    const productType = project.getChildByName("Product") as DeclarationReflection;
+    expect(productType).toBeDefined();
+    const productComment = Comment.combineDisplayParts(productType.comment?.summary);
+    expect(productComment).toContain("Product information");
 });
